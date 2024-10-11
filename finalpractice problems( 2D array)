@@ -1,0 +1,25 @@
+Create a program in c++ that uses a function to find the sum of all elements in a 2D array.
+```cpp
+#include <iostream>
+using namespace std;
+
+int sumOfArray(int arr[3][3]) {
+    int sum = 0;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            sum += arr[i][j];
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int arr[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    cout << "The sum of all elements in the array is: " << sumOfArray(arr) << endl;
+    
+    return 0;
+}
+```
+
+In this program, we define a 2D array `arr` and a function `sumOfArray` that takes the array as a parameter and returns the sum of all elements in the array. In the `main` function, we initialize the array and call the `sumOfArray` function to find the sum of all elements in the array.

@@ -1,0 +1,315 @@
+3..Create a program in c++ that uses a function to find the sum of all elements in a 2D array.
+```cpp
+#include <iostream>
+using namespace std;
+
+int sumOfArray(int arr[3][3]) {
+    int sum = 0;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            sum += arr[i][j];
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int arr[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    cout << "The sum of all elements in the array is: " << sumOfArray(arr) << endl;
+    
+    return 0;
+}
+```
+
+In this program, we define a 2D array `arr` and a function `sumOfArray` that takes the array as a parameter and returns the sum of all elements in the array. In the `main` function, we initialize the array and call the `sumOfArray` function to find the sum of all elements in the array.
+
+
+
+4..write a program in c++ that Implement a function to find the diagonal sum of a square matrix
+
+Sure! Here's a program in C++ that implements a function to find the diagonal sum of a square matrix:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int MAX_SIZE = 100;
+
+int diagonalSum(int mat[MAX_SIZE][MAX_SIZE], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += mat[i][i];  // Adding the elements on the main diagonal
+    }
+    return sum;
+}
+
+int main() {
+    int size;
+    cout << "Enter the size of the square matrix: ";
+    cin >> size;
+
+    int mat[MAX_SIZE][MAX_SIZE];
+    cout << "Enter the elements of the square matrix:" << endl;
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            cin >> mat[i][j];
+        }
+    }
+
+    int sum = diagonalSum(mat, size);
+    cout << "The sum of the elements on the main diagonal is: " << sum << endl;
+
+    return 0;
+}
+```
+
+In this program, we define a function `diagonalSum` that takes a square matrix and its size as parameters and returns the sum of the elements on the main diagonal. In the `main` function, we prompt the user to enter the size and elements of the square matrix, and then call the `diagonalSum` function to find the sum of the main diagonal elements.
+
+
+
+5..Write a C++ function to find the maximum element in a 2D array
+Certainly! Here's a C++ function to find the maximum element in a 2D array:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int ROWS = 3;
+const int COLS = 3;
+
+int findMaxElement(int arr[ROWS][COLS]) {
+    int maxElement = arr[0][0];  // Initialize maxElement with the first element of the array
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            if (arr[i][j] > maxElement) {
+                maxElement = arr[i][j];
+            }
+        }
+    }
+    return maxElement;
+}
+
+int main() {
+    int arr[ROWS][COLS] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    int maxElement = findMaxElement(arr);
+    cout << "The maximum element in the 2D array is: " << maxElement << endl;
+    
+    return 0;
+}
+```
+
+In this program, we define a function `findMaxElement` that takes a 2D array as a parameter and iterates through all elements to find the maximum element. In the `main` function, we initialize a 2D array and call the `findMaxElement` function to find the maximum element in the array.
+
+
+
+6..Create a C++ function to find the column-wise sum of a 2D array.
+
+Here's a C++ function to find the column-wise sum of a 2D array:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int ROWS = 3;
+const int COLS = 3;
+
+void columnWiseSum(int arr[ROWS][COLS]) {
+    int sum[COLS] = {0};  // Initialize an array to store the column-wise sums
+
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            sum[j] += arr[i][j];  // Add the current element to the corresponding column sum
+        }
+    }
+
+    cout << "Column-wise sums: ";
+    for (int j = 0; j < COLS; j++) {
+        cout << sum[j] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int arr[ROWS][COLS] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    columnWiseSum(arr);
+    
+    return 0;
+}
+```
+
+In this program, we define a function `columnWiseSum` that takes a 2D array as a parameter and calculates the sum of each column. Inside the function, we use a separate array `sum` to store the column-wise sums. We then iterate through the array and add each element to the corresponding column sum. Finally, we print the column-wise sums. In the `main` function, we initialize a 2D array and call the `columnWiseSum` function to find the column-wise sums.
+
+
+
+7..Create a program in c++ that uses functions to find the row with the maximum sum in a 2D array
+
+Certainly! Below is a C++ program that uses a function to find the row with the maximum sum in a 2D array:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int ROWS = 3;
+const int COLS = 3;
+
+int findMaxRowSum(int arr[ROWS][COLS]) {
+    int maxSum = 0;
+    int maxRow = 0;
+
+    for (int i = 0; i < ROWS; i++) {
+        int rowSum = 0;
+        for (int j = 0; j < COLS; j++) {
+            rowSum += arr[i][j];  // Calculate the sum of elements in the current row
+        }
+        if (rowSum > maxSum) {
+            maxSum = rowSum;
+            maxRow = i;
+        }
+    }
+    return maxRow;
+}
+
+int main() {
+    int arr[ROWS][COLS] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    int maxRow = findMaxRowSum(arr);
+    cout << "The row with the maximum sum is: " << maxRow + 1 << endl;  // Adding 1 to convert 0-based index to 1-based index
+    
+    return 0;
+}
+```
+
+In this program, we define a function `findMaxRowSum` that takes a 2D array as a parameter and iterates through each row to calculate the sum of its elements. It then tracks the row with the maximum sum and returns the index of that row. In the `main` function, we initialize a 2D array and call the `findMaxRowSum` function to find the row with the maximum sum.
+
+
+8.Write a program in c++ that uses function to compute the average of each column in a 2D array
+Sure! Here's a C++ program that uses a function to compute the average of each column in a 2D array:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int ROWS = 3;
+const int COLS = 3;
+
+void computeColumnAverages(int arr[ROWS][COLS]) {
+    double averages[COLS] = {0};  // Initialize an array to store the column averages
+
+    for (int j = 0; j < COLS; j++) {
+        double columnSum = 0;
+        for (int i = 0; i < ROWS; i++) {
+            columnSum += arr[i][j];  // Add the current element to the column sum
+        }
+        averages[j] = columnSum / ROWS;  // Calculate the average of the current column
+    }
+
+    cout << "Column averages: ";
+    for (int j = 0; j < COLS; j++) {
+        cout << averages[j] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int arr[ROWS][COLS] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    computeColumnAverages(arr);
+    
+    return 0;
+}
+```
+
+In this program, we define a function `computeColumnAverages` that takes a 2D array as a parameter and calculates the average of each column. Inside the function, we use a separate array `averages` to store the column averages. We then iterate through each column and add each element to the corresponding column sum. We then divide the column sum by the number of rows to calculate the average of the current column. Finally, we print the column averages. In the `main` function, we initialize a 2D array and call the `computeColumnAverages` function to compute the column averages.
+
+
+9..Implement a C++ program to find the product of two matrices using functions.
+
+Certainly! Below is a C++ program that uses functions to find the product of two matrices:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int ROWS1 = 2;
+const int COLS1 = 3;
+const int ROWS2 = 3;
+const int COLS2 = 2;
+
+void multiplyMatrices(int mat1[ROWS1][COLS1], int mat2[ROWS2][COLS2], int result[ROWS1][COLS2]) {
+    for (int i = 0; i < ROWS1; i++) {
+        for (int j = 0; j < COLS2; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < COLS1; k++) {
+                result[i][j] += mat1[i][k] * mat2[k][j];
+            }
+        }
+    }
+}
+
+void printMatrix(int mat[ROWS1][COLS2]) {
+    for (int i = 0; i < ROWS1; i++) {
+        for (int j = 0; j < COLS2; j++) {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int matrix1[ROWS1][COLS1] = {{1, 2, 3}, {4, 5, 6}};
+    int matrix2[ROWS2][COLS2] = {{7, 8}, {9, 10}, {11, 12}};
+    int resultMatrix[ROWS1][COLS2];
+
+    multiplyMatrices(matrix1, matrix2, resultMatrix);
+
+    cout << "Product of the matrices:" << endl;
+    printMatrix(resultMatrix);
+
+    return 0;
+}
+```
+
+In this program, we define a function `multiplyMatrices` that takes two matrices as parameters and calculates their product. Inside the function, we use nested loops to iterate through the elements of the matrices and compute the product. The result is stored in the `result` matrix. We also define a function `printMatrix` to print the resulting matrix. In the `main` function, we initialize two input matrices and a result matrix, and then call the `multiplyMatrices` function to find the product of the matrices. Finally, we print the resulting matrix.
+
+
+
+10.write a program in c++ that Create a function to calculate the row-wise sum of a 2D array.
+
+Certainly! Here's a C++ program that creates a function to calculate the row-wise sum of a 2D array:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int ROWS = 3;
+const int COLS = 3;
+
+void calculateRowSum(int arr[ROWS][COLS], int rowSums[ROWS]) {
+    for (int i = 0; i < ROWS; i++) {
+        rowSums[i] = 0;
+        for (int j = 0; j < COLS; j++) {
+            rowSums[i] += arr[i][j];
+        }
+    }
+}
+
+int main() {
+    int arr[ROWS][COLS] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int rowSums[ROWS];
+
+    calculateRowSum(arr, rowSums);
+
+    cout << "Row-wise sums: ";
+    for (int i = 0; i < ROWS; i++) {
+        cout << rowSums[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+```
+
+In this program, we define a function `calculateRowSum` that takes a 2D array and an array to store the row sums as parameters. Inside the function, we use nested loops to iterate through the elements of the array and calculate the sum of each row. The row sums are then stored in the `rowSums` array. In the `main` function, we initialize a 2D array and an array to store the row sums, and then call the `calculateRowSum` function to calculate the row-wise sum of the array. Finally, we print the row-wise sums.
